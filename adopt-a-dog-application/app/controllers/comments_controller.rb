@@ -7,8 +7,7 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @adoption = Adoption.find(params[:id])
-    @comment = @adoption.comments.build
+    @comment = Comment.new
   end
 
   def create
@@ -48,7 +47,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:feedback)
+    params.require(:comment).permit(:feedback, :adoption_id)
   end
 
 end

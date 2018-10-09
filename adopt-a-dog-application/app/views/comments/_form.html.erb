@@ -1,6 +1,8 @@
-<%= form_for([@adoption, @comment]) do |f| %>
+<%= form_for(@comment), url: adoption_comments_path do |f| %>
+    <%= f.hidden_field :adoption_id %>
+
     <%= f.label :feedback %>
-    <%= f.text_field :feedback %><br />
-    <br />
+    <%= f.text_field :feedback %>
+
     <%= f.submit "Submit Comment" %>
 <% end %>

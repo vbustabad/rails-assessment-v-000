@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'application#home'
   resources :adoptions, only: [:create, :index, :show] do
-    resources :comments
+    resources :comments, only: [:show, :index, :new, :edit]
   end
   resources :users
   resources :shelters
