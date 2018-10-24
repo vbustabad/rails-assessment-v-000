@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @adoption = Adoption.find(params[:id])
+    @adoption = Adoption.find(params[:adoption_id])
     @comment = @adoption.comments.build
   end
 
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      redirect_to adoption_comment_path(@comment)
+      redirect_to adoption_comment_path(params[:adoption_id], @comment)
     else
       render :new
     end
@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
     @comment.update(comment_params)
 
     if @comment.save
-      redirect_to adoption_comment_path(@comment)
+      redirect_to adoption_comment_path(params[:adoption_id], @comment)
     else
       render :edit
     end
