@@ -2,7 +2,7 @@
 
 <ul>
   <% @adoptions.each do |adoption| %>
-    <li><%= adoption.dog.name %> - <%= link_to "Show #{adoption.dog.name}", dog_path(adoption.dog) %></li>
+    <li><%= adoption.dog.name %> - <%= link_to "View Adoption", adoption_path(adoption.id) %></li>
   <% end %>
 </ul>
 <br>

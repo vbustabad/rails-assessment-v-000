@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   delete '/logout' => 'sessions#destroy'
   get '/signup' => 'users#new'
-  get '/callback' => 'github_sessions#new'
+  # get '/auth/github/', :as 'github_auth' 
+  match '/auth/github/callback' => 'github_sessions#create', :via => [:get, :post]
+  get '/signout' => 'github_sessions#destroy', :as => 'signout'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

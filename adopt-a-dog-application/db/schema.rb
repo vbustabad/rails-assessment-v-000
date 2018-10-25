@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_08_182214) do
-
-  create_table "adoption_comments", force: :cascade do |t|
-    t.integer "adoption_id"
-    t.integer "comment_id"
-    t.index ["adoption_id"], name: "index_adoption_comments_on_adoption_id"
-    t.index ["comment_id"], name: "index_adoption_comments_on_comment_id"
-  end
+ActiveRecord::Schema.define(version: 2018_10_24_222804) do
 
   create_table "adoptions", force: :cascade do |t|
     t.integer "owner_id"
@@ -26,6 +19,13 @@ ActiveRecord::Schema.define(version: 2018_10_08_182214) do
     t.datetime "updated_at", null: false
     t.index ["dog_id"], name: "index_adoptions_on_dog_id"
     t.index ["owner_id"], name: "index_adoptions_on_owner_id"
+  end
+
+  create_table "adoptions_comments", force: :cascade do |t|
+    t.integer "adoption_id"
+    t.integer "comment_id"
+    t.index ["adoption_id"], name: "index_adoptions_comments_on_adoption_id"
+    t.index ["comment_id"], name: "index_adoptions_comments_on_comment_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -72,6 +72,8 @@ ActiveRecord::Schema.define(version: 2018_10_08_182214) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"
+    t.string "provider"
+    t.string "uid"
   end
 
 end

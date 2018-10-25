@@ -3,4 +3,12 @@
 <p>Dog: <%= @adoption.dog.name %></p>
 <p>Owner: <%= @adoption.owner.name %></p>
 
+<%= link_to "Show #{@adoption.dog.name}", dog_path(id: @adoption.dog.id) %>
+
+<br></br>
+
+<p> We thank you for using the Adopt-a-Dog application and hope that you had a good experience with the application. </p>
+
+<p> If you would like to submit feedback, please click on the following link: </p> 
+
 <%= link_to "Submit Feedback", new_adoption_comment_path(adoption_id: @adoption.id) %>

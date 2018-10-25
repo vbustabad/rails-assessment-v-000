@@ -1,3 +1,7 @@
 <h1> Edit Feedback </h1>
 
-<%= render partial: 'form', locals: {comment: @comment} %>
+<%= form_for ([@adoption, @comment]), :url => { :action => "update" } do |form| %>
+
+<%= render partial: 'form', locals: {comment: @comment, f: form} %>
+
+<% end %>

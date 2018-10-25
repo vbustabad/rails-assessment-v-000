@@ -11,4 +11,10 @@
 <br></br>
 <br></br>
 
+<% if @user.owner.adoption %>
+  <%= link_to 'View Adoption', adoption_path(id: @user.owner.adoption.id) %>
+<% end %>
+
+<br></br>
+
 <%= link_to 'View Dogs', dogs_path %>
