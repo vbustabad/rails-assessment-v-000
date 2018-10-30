@@ -3,7 +3,7 @@
 <% unless @comments.empty? %>
   <ul>
     <% @comments.each do |comment| %>
-      <li><%= comment.feedback %><%= link_to "Show Comment", adoption_comment_path(params[:adoption_id], comment) %></li>
+      <li><%= comment.feedback %> - <%= link_to "Show Comment", adoption_comment_path(@adoption, comment) %></li>
       <% end %>
   </ul>
 <% end %>

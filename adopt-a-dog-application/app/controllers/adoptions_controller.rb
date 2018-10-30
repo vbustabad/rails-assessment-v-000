@@ -1,5 +1,5 @@
 class AdoptionsController < ApplicationController
-  before_action :require_admin
+  before_action :require_admin, only: [:index, :show]
   before_action :require_owner, only: :create
 
   def index
