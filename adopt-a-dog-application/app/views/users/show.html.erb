@@ -11,7 +11,7 @@
 <br></br>
 <br></br>
 
-<% if @user.owner.adoption %>
+<% if @user.owner && @user.owner.adoption %>
   <%= link_to 'View Adoption', adoption_path(id: @user.owner.adoption.id) %>
 <% end %>
 
