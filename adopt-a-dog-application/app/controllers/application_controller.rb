@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
 
   def home
-    @github_client_id = ENV['GH_BASIC_CLIENT_ID']
+    @github_client_id = ENV['GITHUB_KEY']
     render :home
   end
 

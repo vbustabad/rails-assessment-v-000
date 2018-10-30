@@ -6,12 +6,13 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :admin, inclusion: { in: [true, false] }
 
-  def self.create_with_omniauth(auth)
-    create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      user.name = auth["info"]["name"]
-    end
+  def self.build_with_omniauth(auth)
+    new(
+      provider: auth["provider"],
+      uid: auth["uid"],
+      name: auth["info"]["name"],
+      email: auth["info"]["email"]
+    )
   end
   
   def dog

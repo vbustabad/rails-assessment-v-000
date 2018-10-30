@@ -1,4 +1,7 @@
 <%= form_for(@user) do |f| %>
+    <%= f.hidden_field :provider, value: @user.provider %>
+    <%= f.hidden_field :uid, value: @user.uid %>
+    
     <%= f.label :name %>
     <%= f.text_field :name %><br />
     <br />
